@@ -5,3 +5,7 @@
 #answer-rule{
     border-top: 3px solid #bbb
 }
+
+.hidden{
+    display: none;
+}
