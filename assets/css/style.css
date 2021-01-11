@@ -1,3 +1,7 @@
 #timer{
     text-align: right;
 }
+
+#answer-rule{
+    border-top: 3px solid #bbb
+}
