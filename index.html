@@ -17,35 +17,57 @@
     </header>
 
     <main class="container">
-        <section class="row">
+        
+        <section class="row" id="greeting-pane">
             <!-- TODO - this gets wonky at <575px -->
-            <div class="col-sm-4 col-lg-4"></div>
-            <div class="col-sm-6 col-lg-5">
+            <div class="col-md-4 col-lg-4"></div>
+            <div class="col-md-6 col-lg-5">
                 <div class="row">
-                    <div class="col-sm-12"><h1 id="question-header">Quiz Framework</h1></div>
+                    <div class="col-sm-12"><h1 id="greeting">Quiz Framework</h1></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12"><button class="answer-btn-1">I'm a button!</button></div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10"><p>Welcome to the quiz famework</p></div>
+                    <div class="col-md-1"></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12"><button class="answer-btn-2">I'm a button!</button></div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"><button class="startButton">Start Quiz</button></div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+            <div class="col-md-2 col-lg-3"></div>
+        </section>
+
+        <section class="row" id="question-pane">
+            <!-- TODO - this gets wonky at <575px -->
+            <div class="col-md-4 col-lg-4"></div>
+            <div class="col-md-6 col-lg-5">
+                <div class="row">
+                    <div class="col-md-12"><h1 id="question-header">This is a question</h1></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12"><button class="answer-btn-3">I'm a button!</button></div>
+                    <div class="col-md-12"><button class="answer-btn-1">I'm a button!</button></div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12"><button class="answer-btn-4">I'm a button!</button></div>
+                    <div class="col-md-12"><button class="answer-btn-2">I'm a button!</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><button class="answer-btn-3">I'm a button!</button></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><button class="answer-btn-4">I'm a button!</button></div>
                 </div>
                 <div id="answer-pane">
                     <div class="row">
-                        <div class="col-sm-12"><hr id="answer-rule"></div>
+                        <div class="col-md-12"><hr id="answer-rule"></div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-12"><span class ="answer-valid-alert">I'm a boolean!</span></div>
+                        <div class="col-md-12"><span class ="answer-valid-alert">I'm a boolean!</span></div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-2 col-lg-3"></div>
+            <div class="col-ms-2 col-lg-3"></div>
         </section>
     </main>
 
