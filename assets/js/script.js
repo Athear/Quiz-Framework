@@ -1,8 +1,13 @@
+//Select which quiz is going to be active:
+var currentQuiz = dummyQuiz
+
+console.log(currentQuiz);
+
 var questionPane =$("#question-pane");
 var greetingPane =$("#greeting-pane");
 
 var currentClass = questionPane.attr("class");
-questionPane.attr("class",currentClass+" hidden");
+// questionPane.attr("class",currentClass+" hidden");
 
 
 function startQuiz(){
