@@ -1,5 +1,5 @@
 var questionPane =$("#question-pane");
-var greetingPane =$("greeting-pane");
+var greetingPane =$("#greeting-pane");
 
 var currentClass = questionPane.attr("class");
 questionPane.attr("class",currentClass+" hidden");
@@ -12,4 +12,7 @@ function startQuiz(){
 }
 
 
-// $("#startButton").on("click", startQuiz())
+$("#startButton").on("click", startQuiz)
+
+// var start = document.querySelector("#startButton");
+// start.addEventListener("click",startQuiz)
