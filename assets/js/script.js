@@ -36,13 +36,16 @@ function startQuiz(){
             stopQuiz();
         }
     },1000)
+}
 
-
+function stopQuiz(){
+    clearInterval(quizTimer);
+    $("#question-pane").attr("class","row hidden");
+    $("#complete-pane").attr("class","row")
 }
 
 function loadQuestion(){
     //TODO: consider using .shift instead of iteraing
-
     var currentQuestion= currentQuiz.questionList[questionNumber];
     $("#question-header").text(currentQuestion.question);
 
@@ -53,8 +56,6 @@ function loadQuestion(){
 
 function answerClicked(which){
     console.log(which); //DEBUG
-    console.log(currentQuiz.questionList[questionNumber].correctAnswer); //DEBUG
-    console.log(which===currentQuiz.questionList[questionNumber].correctAnswer); //DEBUG
     if(which===currentQuiz.questionList[questionNumber].correctAnswer){
         $("#answer-valid-alert").text("You got it!");
     }
@@ -77,13 +78,6 @@ function answerClicked(which){
 }
 
 
-function stopQuiz(){
-    clearInterval(quizTimer);
-    $("#question-pane").attr("class","row hidden");
-    $("#complete-pane").attr("class","row")
-}
-
-
 //Click listers for buttons
 $("#startButton").on("click", startQuiz)
 
@@ -92,7 +86,3 @@ $("#answer-btn-0").on("click", function(){answerClicked(0)});
 $("#answer-btn-1").on("click", function(){answerClicked(1)});
 $("#answer-btn-2").on("click", function(){answerClicked(2)});
 $("#answer-btn-3").on("click", function(){answerClicked(3)});
-
-
-// var start = document.querySelector("#startButton");
-// start.addEventListener("click",startQuiz)
