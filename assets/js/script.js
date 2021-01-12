@@ -1,5 +1,6 @@
 //Select which quiz is going to be active:
-var currentQuiz = dummyQuiz
+//TODO: could build a quiz selector page. It would load into local storage, then this would retrieve from there.
+var currentQuiz = dummyQuiz //TODO: this should be loaded, not just referenced blindly like this
 console.log(currentQuiz);//DEBUG
 
 //HTML elements
@@ -20,13 +21,29 @@ function startQuiz(){
     //console.log("i got called")//DEBUG
     questionNumber =0; 
     loadQuestion();
-    greetingPane.attr("class","hidden");
-    questionPane.attr("class","row");
+    $("#greeting-pane").attr("class","hidden");
+    $("#question-pane").attr("class","row");
     
 }
 
 function answerClicked(which){
-    console.log(which)
+    console.log(which);
+    console.log(currentQuiz.questionList[questionNumber].correctAnswer);
+    console.log(which===currentQuiz.questionList[questionNumber].correctAnswer);
+    if(which===currentQuiz.questionList[questionNumber].correctAnswer){
+        $("#answer-valid-alert").text("You got it!");
+    }
+    else{
+        $("#answer-valid-alert").text("WRONG");
+    }
+
+    //Flash whether the answer was correct or not
+    $("#answer-pane").attr("class","");
+    var validationVisible = setTimeout(function(){
+        $("#answer-pane").attr("class","hidden");
+    },700);
+
+    
     //load next question
 }
 
@@ -34,16 +51,16 @@ function loadQuestion(){
     //TODO: consider using .shift instead of iteraing
     var currentQuestion= currentQuiz.questionList[questionNumber];
     $("#question-header").text(currentQuestion.question);
-    $("#answer-btn-0").text(currentQuestion.answers[0]);
-    $("#answer-btn-1").text(currentQuestion.answers[1]);
-    $("#answer-btn-2").text(currentQuestion.answers[2]);
-    $("#answer-btn-3").text(currentQuestion.answers[3]);
+
+    for(var i=0; i<4;i++){
+        $("#answer-btn-"+i).text(currentQuestion.answers[i]);
+    }
 }
 
 //Click listers for buttons
 $("#startButton").on("click", startQuiz)
 
-// TODO - is there a better way to handle this?
+// TODO - is there a better way to handle this? for loop didn't quite work. Possibly try data-id attributes. would need to get target of event
 $("#answer-btn-0").on("click", function(){answerClicked(0)});
 $("#answer-btn-1").on("click", function(){answerClicked(1)});
 $("#answer-btn-2").on("click", function(){answerClicked(2)});
