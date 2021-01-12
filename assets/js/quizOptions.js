@@ -10,7 +10,7 @@ dummyQuiz = {
             "correctAnswer":2
         },
         {
-            "question":"first actual question",
+            "question":"second question",
             "answers":["Answer1","Answer2","Answer3","Answer4"],
             "correctAnswer":4
         }]
