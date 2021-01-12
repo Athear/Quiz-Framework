@@ -39,6 +39,10 @@ function startQuiz(){
 
 function stopQuiz(){
     clearInterval(quizTimer);
+
+    if(quizCountdown=0){
+        $("#complete-header").text("Out of Time!")
+    }
     $("#complete-score").text(quizCountdown);
     $("#question-pane").attr("class","row hidden");
     $("#complete-pane").attr("class","row")
@@ -83,6 +87,7 @@ function submitScore(event){
         "score":quizCountdown
     }
     //TODO: This needs to be in local storage. How do I do that?
+    //TODO: don't let them submit if score = 0
     alert("congratulations "+scoreObj.name+"! Your score is "+scoreObj.score)
 }
 
