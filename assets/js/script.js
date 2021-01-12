@@ -26,6 +26,16 @@ function startQuiz(){
     
 }
 
+function loadQuestion(){
+    //TODO: consider using .shift instead of iteraing
+    var currentQuestion= currentQuiz.questionList[questionNumber];
+    $("#question-header").text(currentQuestion.question);
+
+    for(var i=0; i<4;i++){
+        $("#answer-btn-"+i).text(currentQuestion.answers[i]);
+    }
+}
+
 function answerClicked(which){
     console.log(which);
     console.log(currentQuiz.questionList[questionNumber].correctAnswer);
@@ -47,15 +57,6 @@ function answerClicked(which){
     //load next question
 }
 
-function loadQuestion(){
-    //TODO: consider using .shift instead of iteraing
-    var currentQuestion= currentQuiz.questionList[questionNumber];
-    $("#question-header").text(currentQuestion.question);
-
-    for(var i=0; i<4;i++){
-        $("#answer-btn-"+i).text(currentQuestion.answers[i]);
-    }
-}
 
 //Click listers for buttons
 $("#startButton").on("click", startQuiz)
