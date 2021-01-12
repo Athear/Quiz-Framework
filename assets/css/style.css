@@ -6,6 +6,10 @@
     border-top: 3px solid #bbb
 }
 
+#greeting-pane{
+    text-align: center;
+}
+
 .hidden{
     display: none;
 }
