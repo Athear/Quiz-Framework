@@ -5,28 +5,29 @@ console.log(currentQuiz);//DEBUG
 //HTML elements
 var questionPane =$("#question-pane");
 var greetingPane =$("#greeting-pane");
+var completePane =$("#complete-pane");
 
 //Quiz components
+//TODO: update greeting pane with quiz title and welcome blurb
 var questionNumber = 1;
 var quizName = currentQuiz.Title
 console.log(quizName);
-console.log(currentQuiz.questionList[1].question)
-
-var currentClass = questionPane.attr("class");
-// questionPane.attr("class",currentClass+" hidden");
 
 
 function startQuiz(){
     //console.log("i got called")//DEBUG
     questionNumber =0; 
     loadQuestion();
-    $("#greeting-pane").attr("class","hidden");
+    $("#greeting-pane").attr("class","row hidden");
     $("#question-pane").attr("class","row");
     
+
+
 }
 
 function loadQuestion(){
     //TODO: consider using .shift instead of iteraing
+
     var currentQuestion= currentQuiz.questionList[questionNumber];
     $("#question-header").text(currentQuestion.question);
 
@@ -36,9 +37,9 @@ function loadQuestion(){
 }
 
 function answerClicked(which){
-    console.log(which);
-    console.log(currentQuiz.questionList[questionNumber].correctAnswer);
-    console.log(which===currentQuiz.questionList[questionNumber].correctAnswer);
+    console.log(which); //DEBUG
+    console.log(currentQuiz.questionList[questionNumber].correctAnswer); //DEBUG
+    console.log(which===currentQuiz.questionList[questionNumber].correctAnswer); //DEBUG
     if(which===currentQuiz.questionList[questionNumber].correctAnswer){
         $("#answer-valid-alert").text("You got it!");
     }
@@ -52,8 +53,18 @@ function answerClicked(which){
         $("#answer-pane").attr("class","hidden");
     },700);
 
-    
-    //load next question
+    questionNumber++
+    if(questionNumber<currentQuiz.questionList.length){
+        loadQuestion();
+    }else{
+        stopQuiz();
+    }
+}
+
+
+function stopQuiz(){
+    $("#question-pane").attr("class","row hidden");
+    $("#complete-pane").attr("class","row")
 }
 
 
