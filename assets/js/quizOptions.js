@@ -9,7 +9,7 @@ function loadQuiz(quiz){
 
 var dummyQuiz = {
     "Title":"DummyQuiz",
-    "welcome":"please take this garbage quiz!",
+    "welcome":"Answer the following questions as fast as possible. A wrong answer will deduct 10 seconds! Click start to begin",
     "questionList":
         [{
             "question":"first actual question",

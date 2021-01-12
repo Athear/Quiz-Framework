@@ -18,7 +18,6 @@ var quizTimer;
 var quizCountdown = 72;
 
 function startQuiz(){
-    //console.log("i got called")//DEBUG
     questionNumber =0; 
     quizCountdown = 72;
     loadQuestion();
@@ -40,6 +39,7 @@ function startQuiz(){
 
 function stopQuiz(){
     clearInterval(quizTimer);
+    $("#complete-score").text(quizCountdown);
     $("#question-pane").attr("class","row hidden");
     $("#complete-pane").attr("class","row")
 }
@@ -77,9 +77,18 @@ function answerClicked(which){
     }
 }
 
+function submitScore(event){
+    var scoreObj={
+        "name":$("#score-input").val(),
+        "score":quizCountdown
+    }
+    //TODO: This needs to be in local storage. How do I do that?
+    alert("congratulations "+scoreObj.name+"! Your score is "+scoreObj.score)
+}
 
 //Click listers for buttons
-$("#startButton").on("click", startQuiz)
+$("#startButton").on("click", startQuiz);
+$("#score-btn").on("click", submitScore);
 
 // TODO - is there a better way to handle this? for loop didn't quite work. Possibly try data-id attributes. would need to get target of event
 $("#answer-btn-0").on("click", function(){answerClicked(0)});
