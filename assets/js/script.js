@@ -1,6 +1,5 @@
-//Select which quiz is going to be active:
-//TODO: could build a quiz selector page. It would load into local storage, then this would retrieve from there.
-var currentQuiz = dummyQuiz //TODO: this should be loaded, not just referenced blindly like this
+//Get the loaded quiz
+var currentQuiz = JSON.parse(sessionStorage.getItem("loadedQuiz"))
 console.log(currentQuiz);//DEBUG
 
 //HTML elements
