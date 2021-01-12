@@ -13,14 +13,29 @@ var questionNumber = 1;
 var quizName = currentQuiz.Title
 console.log(quizName);
 
+//declare global quizTimer
+var quizTimer;
+var quizCountdown = 72;
 
 function startQuiz(){
     //console.log("i got called")//DEBUG
     questionNumber =0; 
+    quizCountdown = 72;
     loadQuestion();
     $("#greeting-pane").attr("class","row hidden");
     $("#question-pane").attr("class","row");
-    
+    $("#timer").text(quizCountdown)
+
+    quizTimer = setInterval(function(){
+        quizCountdown--
+        if(quizCountdown>0){
+           $("#timer").text(quizCountdown);
+        }else{
+            quizCountdown=0
+            $("#timer").text(quizCountdown);
+            stopQuiz();
+        }
+    },1000)
 
 
 }
@@ -63,6 +78,7 @@ function answerClicked(which){
 
 
 function stopQuiz(){
+    clearInterval(quizTimer);
     $("#question-pane").attr("class","row hidden");
     $("#complete-pane").attr("class","row")
 }
