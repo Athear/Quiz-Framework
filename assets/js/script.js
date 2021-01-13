@@ -40,7 +40,7 @@ function startQuiz(){
 function stopQuiz(){
     clearInterval(quizTimer);
 
-    if(quizCountdown=0){
+    if(quizCountdown===0){
         $("#complete-header").text("Out of Time!")
     }
     $("#complete-score").text(quizCountdown);
