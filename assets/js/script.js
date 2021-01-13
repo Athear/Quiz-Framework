@@ -51,10 +51,11 @@ function stopQuiz(){
 function loadQuestion(){
     //TODO: consider using .shift instead of iteraing
     var currentQuestion= currentQuiz.questionList[questionNumber];
+    var answerButtons = $(".answer-btn")
     $("#question-header").text(currentQuestion.question);
 
     for(var i=0; i<4;i++){
-        $("#answer-btn-"+i).text(currentQuestion.answers[i]);
+        answerButtons[i].textContent = currentQuestion.answers[i];
     }
 }
 
@@ -95,8 +96,7 @@ function submitScore(event){
 $("#startButton").on("click", startQuiz);
 $("#score-btn").on("click", submitScore);
 
-// TODO - is there a better way to handle this? for loop didn't quite work. Possibly try data-id attributes. would need to get target of event
-$("#answer-btn-0").on("click", function(){answerClicked(0)});
-$("#answer-btn-1").on("click", function(){answerClicked(1)});
-$("#answer-btn-2").on("click", function(){answerClicked(2)});
-$("#answer-btn-3").on("click", function(){answerClicked(3)});
+$(".answer-btn").on("click", function(){
+    console.log($(this).attr("data-btn-id"));
+    answerClicked($(this).attr("data-btn-id"))});
+
