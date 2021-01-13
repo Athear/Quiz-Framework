@@ -83,13 +83,26 @@ function answerClicked(which){
 }
 
 function submitScore(event){
-    var scoreObj={
-        "name":$("#score-input").val(),
-        "score":quizCountdown
+    event.preventDefault(); //DEBUG
+    console.log("submit score!"); //DEBUG
+    var scoreObj;
+    //test if local storage exists. Make an empty object if not
+    if(!localStorage.getItem("quizScores")){
+        scoreobj={}
+    }else{
+        scoreObj=JSON.parse(localStorage.getItem("quizScores"));
     }
+    console.log(scoreObj);
+    scoreObj[$("#score-input").val()]=quizCountdown;
+    conssole.log("got here");
+    // {
+    //     "name":$("#score-input").val(),
+    //     "score":quizCountdown
+    // }
     //TODO: This needs to be in local storage. How do I do that?
     //TODO: don't let them submit if score = 0
     alert("congratulations "+scoreObj.name+"! Your score is "+scoreObj.score)
+    localStorage.setItem("quizScores",JSON.stringify(scoreObj));
 }
 
 //Click listers for buttons
