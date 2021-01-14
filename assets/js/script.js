@@ -1,6 +1,8 @@
 //Get the loaded quiz
-var currentQuiz = JSON.parse(sessionStorage.getItem("loadedQuiz"))
+var currentQuiz = JSON.parse(sessionStorage.getItem("loadedQuiz"));
 console.log(currentQuiz);//DEBUG
+$("#quizTitle").text(currentQuiz.Title);
+$("#welcome").text(currentQuiz.welcome);
 
 //HTML elements
 var questionPane =$("#question-pane");
@@ -8,15 +10,10 @@ var greetingPane =$("#greeting-pane");
 var completePane =$("#complete-pane");
 
 //Quiz components
-//TODO: update greeting pane with quiz title and welcome blurb
-var questionNumber = 1;
-var quizName = currentQuiz.Title
-console.log(quizName);
-
-//declare global quizTimer
+var questionNumber;
 var quizTimer;
-var quizCountdown = 72;
-var penalty = 10
+var quizCountdown;
+var penalty = 10;
 
 function startQuiz(){
     questionNumber =0; 
@@ -27,7 +24,7 @@ function startQuiz(){
     $("#timer").text(quizCountdown)
 
     quizTimer = setInterval(function(){
-        quizCountdown--
+        quizCountdown--;
         if(quizCountdown>0){
            $("#timer").text(quizCountdown);
         }else{
@@ -42,17 +39,17 @@ function stopQuiz(){
     clearInterval(quizTimer);
 
     if(quizCountdown===0){
-        $("#complete-header").text("Out of Time!")
+        $("#complete-header").text("Out of Time!");
     }
     $("#complete-score").text(quizCountdown);
     $("#question-pane").attr("class","row hidden");
-    $("#complete-pane").attr("class","row")
+    $("#complete-pane").attr("class","row");
 }
 
 function loadQuestion(){
     //TODO: consider using .shift instead of iteraing
     var currentQuestion= currentQuiz.questionList[questionNumber];
-    var answerButtons = $(".answer-btn")
+    var answerButtons = $(".answer-btn");
     $("#question-header").text(currentQuestion.question);
 
     for(var i=0; i<4;i++){
@@ -62,14 +59,14 @@ function loadQuestion(){
 
 function answerClicked(which){
     console.log(which); //DEBUG
-    console.log(currentQuiz.questionList[questionNumber].correctAnswer)
+    console.log(currentQuiz.questionList[questionNumber].correctAnswer);
     console.log(which==currentQuiz.questionList[questionNumber].correctAnswer);
     if(which==currentQuiz.questionList[questionNumber].correctAnswer){
         $("#answer-valid-alert").text("You got it!");
     }
     else{
         $("#answer-valid-alert").text("WRONG");
-        quizCountdown=quizCountdown-penalty
+        quizCountdown=quizCountdown-penalty;
         $("#timer").text(quizCountdown);
     }
 
@@ -94,7 +91,7 @@ function submitScore(event){
     var scoreObj;
     //test if local storage exists. Make an empty object if not
     if(!localStorage.getItem("quizScores")){
-        scoreStorage=[]
+        scoreStorage=[];
     }else{
         scoreStorage=(JSON.parse(localStorage.getItem("quizScores")));
     }
@@ -103,7 +100,7 @@ function submitScore(event){
     {
         "name":$("#score-input").val(),
         "score":quizCountdown
-    }
+    };
     
     scoreStorage.push(scoreObj);
     localStorage.setItem("quizScores",JSON.stringify(scoreStorage));
