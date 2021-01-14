@@ -62,7 +62,9 @@ function loadQuestion(){
 
 function answerClicked(which){
     console.log(which); //DEBUG
-    if(which===currentQuiz.questionList[questionNumber].correctAnswer){
+    console.log(currentQuiz.questionList[questionNumber].correctAnswer)
+    console.log(which==currentQuiz.questionList[questionNumber].correctAnswer);
+    if(which==currentQuiz.questionList[questionNumber].correctAnswer){
         $("#answer-valid-alert").text("You got it!");
     }
     else{

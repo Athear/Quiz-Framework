@@ -20,6 +20,11 @@ var dummyQuiz = {
             "question":"second question",
             "answers":["Answer1","Answer2","Answer3","Answer4"],
             "correctAnswer":2
+        },
+        {
+            "question":"question 3",
+            "answers":["Answer one","Answer two","Answer three","Answer four"],
+            "correctAnswer":1
         }]
 }
 
