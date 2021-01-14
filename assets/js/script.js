@@ -16,6 +16,7 @@ console.log(quizName);
 //declare global quizTimer
 var quizTimer;
 var quizCountdown = 72;
+var penalty = 10
 
 function startQuiz(){
     questionNumber =0; 
@@ -66,6 +67,8 @@ function answerClicked(which){
     }
     else{
         $("#answer-valid-alert").text("WRONG");
+        quizCountdown=quizCountdown-penalty
+        $("#timer").text(quizCountdown);
     }
 
     //Flash whether the answer was correct or not
