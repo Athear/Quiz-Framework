@@ -71,9 +71,9 @@ function answerClicked(which){
     }
 
     //Flash whether the answer was correct or not
-    $("#answer-pane").attr("class","");
+    $("#answer-pane").attr("class","row");
     var validationVisible = setTimeout(function(){
-        $("#answer-pane").attr("class","hidden");
+        $("#answer-pane").attr("class","row hidden");
     },700);
 
     questionNumber++
