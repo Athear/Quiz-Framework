@@ -43,7 +43,7 @@ var JSQuiz = {
         },
         {
             "question":"Which symbol is used to enclose objects?",
-            "answers":["( )","{ }","[ ]","< >"],
+            "answers":["Parentheses","Curly braces","Square brackets","Angle brackets"],
             "correctAnswer":1
         },
         {
