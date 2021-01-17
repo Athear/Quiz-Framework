@@ -2,8 +2,13 @@
 
 var scoreStorage=(JSON.parse(localStorage.getItem("quizScores")));
 
-//if there are scores, iterate through them and create a new element to hold them
+//if there are scores, sort the list and iterate through it to create a new elements for each.
 if(scoreStorage){
+
+    scoreStorage.sort(function (a,b){
+        return b.score - a.score
+    });
+
     for(var i=0;i<scoreStorage.length;i++){
         var scoreObj = scoreStorage[i];
         var scoreText = i+1+". Name: "+scoreObj.name+" | Score: "+scoreObj.score
