@@ -1,5 +1,3 @@
-
-
 var scoreStorage=(JSON.parse(localStorage.getItem("quizScores")));
 
 //if there are scores, sort the list and iterate through it to create a new elements for each.

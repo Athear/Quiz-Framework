@@ -1,6 +1,5 @@
 //Get the loaded quiz
 var currentQuiz = JSON.parse(sessionStorage.getItem("loadedQuiz"));
-console.log(currentQuiz);//DEBUG
 $("#quizTitle").text(currentQuiz.Title);
 $("#welcome").text(currentQuiz.welcome);
 
@@ -47,7 +46,6 @@ function stopQuiz(){
 }
 
 function loadQuestion(){
-    //TODO: consider using .shift instead of iteraing
     var currentQuestion= currentQuiz.questionList[questionNumber];
     var answerButtons = $(".answer-btn");
     $("#question-header").text(currentQuestion.question);
@@ -58,9 +56,7 @@ function loadQuestion(){
 }
 
 function answerClicked(which){
-    console.log(which); //DEBUG
-    console.log(currentQuiz.questionList[questionNumber].correctAnswer);
-    console.log(which==currentQuiz.questionList[questionNumber].correctAnswer);
+    //validate button clicked against correct answer index
     if(which==currentQuiz.questionList[questionNumber].correctAnswer){
         $("#answer-valid-alert").text("You got it!");
     }
@@ -95,7 +91,6 @@ function submitScore(event){
     }else{
         scoreStorage=(JSON.parse(localStorage.getItem("quizScores")));
     }
-    console.log(scoreStorage);//DEBUG
     scoreObj=
     {
         "name":$("#score-input").val(),
