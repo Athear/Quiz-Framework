@@ -28,12 +28,6 @@ function makeScoreElement(scoreText){
 }
 
 
-//add listeners for buttons
-$("#back-button").on("click",function(){
-    console.log("back clicked");
-    window.location = '../../index.html'
-})
-
 $("#clear-button").on("click",function(){
     $("#score-container").empty();
     localStorage.removeItem("quizScores");
