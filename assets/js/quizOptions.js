@@ -28,6 +28,33 @@ var dummyQuiz = {
         }]
 }
 
+var JSQuiz = {
+    "Title":"Javascript Quiz",
+    "welcome":"Answer the following questions about Javascript with the time limit. A wrong answer will deduct 10 seconds! Click start to begin",
+    "questionList":
+        [{
+            "question":"Which of the following evaluate to false?",
+            "answers":["0","null","undefined","all of the above"],
+            "correctAnswer":3
+        },
+        {
+            "question":"What will the following return: typeof('integer')",
+            "answers":["integer","undefined","string","boolean"],
+            "correctAnswer":2
+        },
+        {
+            "question":"Which symbol is used to enclose objects?",
+            "answers":["( )","{ }","[ ]","< >"],
+            "correctAnswer":1
+        },
+        {
+            "question":"What property returns the number of elements in an array?",
+            "answers":["length","size","elements","depth"],
+            "correctAnswer":0
+        }]
+}
+
+
 
 //default
-loadQuiz(dummyQuiz);
+loadQuiz(JSQuiz);
