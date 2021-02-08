@@ -43,3 +43,11 @@ Incorrect answers will reduce the timer by 10 seconds.
 [Project GitHub repository](https://github.com/Athear/Quiz-Framework)
 
 [Live project link](https://athear.github.io/Quiz-Framework/)
+
+
+
+
+
+## License
+
+Licensed under the [MIT](./LICENCE.txt) license
